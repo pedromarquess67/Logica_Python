@@ -1,0 +1,18 @@
+menu = ["Usuário", "Cliente", "Fornecedores", "Relatórios"]
+
+for item in menu:
+    print("+", end="")
+    for c in range(18):
+        print("-", end="")
+    print("+")
+
+    print("|", end="")
+    print(f" {item:<17}", end="")
+    print("|")
+
+print("+", end="")
+for c in range(18):
+    print("-", end="")
+print("+")
+
+
