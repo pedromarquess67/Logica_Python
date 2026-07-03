@@ -1,6 +1,6 @@
-tabuleiro = [[" " for _ in range(3)] for _ in range(3)]
+tabuleiro = [[" " for _ in range(3)] for _ in range(3)]         #Cria uma matriz 3x3 em branco, para representar o tabuleiro só q em branco.
 
-def mostrar_tabuleiro():
+def mostrar_tabuleiro():                                        #Exibe o tabuleiro na tela de forma organizada, separando as colunas com | e as linhas com traços (-------
     print("\nTabuleiro:\n")
     for i in range(3):
         print(" | ".join(tabuleiro[i]))
@@ -8,7 +8,7 @@ def mostrar_tabuleiro():
             print("-" * 9)
     print()
 
-def verificar_vitoria(tabuleiro, jogador):
+def verificar_vitoria(tabuleiro, jogador):                       #Função para verificar se o jogador venceu.
     # linhas
     for i in range(3):
         if (tabuleiro[i][0] == jogador and
@@ -37,7 +37,7 @@ def verificar_vitoria(tabuleiro, jogador):
 
     return False
 
-def verificar_empate(tabuleiro):
+def verificar_empate(tabuleiro):                            #Função para verificar se deu velha/empate
     for i in range(3):
         for j in range(3):
             if tabuleiro[i][j] == " ":
@@ -45,7 +45,7 @@ def verificar_empate(tabuleiro):
     return True
 
 
-jogador = "X"
+jogador = "X"                                               #Definir o jogador X
 
 while True:
     mostrar_tabuleiro()
@@ -54,31 +54,31 @@ while True:
     coluna = int(input("Coluna (0-2): "))
 
     # valida posição
-    if linha < 0 or linha > 2 or coluna < 0 or coluna > 2:
+    if linha < 0 or linha > 2 or coluna < 0 or coluna > 2:              #Verificar se a posição for invalida, como um número menor que 0 ou maior que 2.
         print("Posição inválida!")
         continue
 
     # verifica ocupação
-    if tabuleiro[linha][coluna] != " ":
+    if tabuleiro[linha][coluna] != " ":                                 #Verificar se já existe um valor naquela posição.
         print("Posição ocupada!")
         continue
 
     # faz jogada
-    tabuleiro[linha][coluna] = jogador
+    tabuleiro[linha][coluna] = jogador                                  #Para executar a jogada
 
     # verifica vitória
-    if verificar_vitoria(tabuleiro, jogador):
+    if verificar_vitoria(tabuleiro, jogador):                           # Verifica a vitória, e se vencer, exibir uma mensagem.
         mostrar_tabuleiro()
         print(f"Jogador {jogador} venceu!")
         break
 
-    # verifica empate
+    # verifica empate                                                   #Verifica se deu empate, caso dê, exibe uma mensagem.
     if verificar_empate(tabuleiro):
         mostrar_tabuleiro()
         print("Empate!")
         break
 
-    # troca jogador
+    # troca jogador                                                     # Troca de jogador, Começando com o X, e depois o O
     if jogador == "X":
         jogador = "O"
     else:
