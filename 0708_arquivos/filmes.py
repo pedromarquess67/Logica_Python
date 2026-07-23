@@ -3,7 +3,10 @@ def main():
         menu()
         opcao = input("Digite a opção: ")
 
-        if opcao == "1":
+        if opcao == "0":
+            adicionar_filme()
+
+        elif opcao == "1":
             contar_filmes()
 
         elif opcao == "2":
@@ -28,6 +31,7 @@ def main():
 
 
 def menu():
+    print("0 - Adicionar filme")
     print("1 - Quantidade total de filmes")
     print("2 - Informações de um filme pelo título")
     print("3 - Filmes de um diretor específico")
@@ -146,5 +150,21 @@ def media_duracao():
         return media
 
 
+def adicionar_filme():
+    contador=0
+    titulo= input("Digite o título: ")
+    ano= input("Digite o ano: ")
+    diretor= input("Digite o diretor: ")
+    genero= input("Digite o gênero: ")
+    duracao=input("Digite a duração do filme: ")
+    with open("filmes.txt", "a", encoding="utf-8") as arquivo:
+        arquivo.write(f"Título: {titulo}\n")
+        arquivo.write(f"Ano: {ano}\n")
+        arquivo.write(f"Diretor: {diretor}\n")
+        arquivo.write(f"Gênero: {genero}\n")
+        arquivo.write(f"Duração: {duracao} minutos\n")
+        arquivo.write("\n")
+print("Filme adicionado com sucesso.")
+        
 if __name__ == "__main__":
     main()
