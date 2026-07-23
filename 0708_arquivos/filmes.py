@@ -158,6 +158,7 @@ def adicionar_filme():
     genero= input("Digite o gênero: ")
     duracao=input("Digite a duração do filme: ")
     with open("filmes.txt", "a", encoding="utf-8") as arquivo:
+        arquivo.write("\n")
         arquivo.write(f"Título: {titulo}\n")
         arquivo.write(f"Ano: {ano}\n")
         arquivo.write(f"Diretor: {diretor}\n")
